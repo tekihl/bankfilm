@@ -107,6 +107,7 @@
   padding: 0;
   text-align: right;
   width: 100%;
+  color: black;
 }
 
 .person-info-window__email-row {
@@ -127,7 +128,5 @@
     width: calc(100vw - 16px);
   }
 
-  .person-info-window__top {
-    flex-direction: column;
-  }
+
 }
