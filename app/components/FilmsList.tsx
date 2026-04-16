@@ -107,7 +107,7 @@ export function FilmsList({ films }: FilmsListProps) {
                   onClick={() => openFilmWindow({ imageUrl, title: film.title })}
                 >
                   {" "}
-                  [se bild]
+                  [view image]
                 </button>
               ) : null}
             </li>
