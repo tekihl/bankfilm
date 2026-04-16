@@ -31,6 +31,11 @@ export const filmType = defineType({
       rows: 6,
     }),
     defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+    }),
+    defineField({
       name: 'team',
       title: 'Team',
       type: 'array',
@@ -38,8 +43,7 @@ export const filmType = defineType({
         defineField({
           name: 'member',
           title: 'Member',
-          type: 'reference',
-          to: [{type: 'person'}],
+          type: 'string',
         }),
       ],
     }),

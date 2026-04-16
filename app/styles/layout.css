@@ -80,8 +80,23 @@
 }
 
 .title {
-  font-size: inherit;
+  font-size: 1.7rem;
   font-weight: 400;
-  margin: 0;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+
+.people-inline__link {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: blue;
+  cursor: pointer;
+  display: inline;
+  font: inherit;
   line-height: inherit;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  vertical-align: baseline;
 }

@@ -1,0 +1,133 @@
+.person-info-window {
+  background: rgb(248, 248, 248);
+  border: solid 1px rgb(198, 198, 198);
+  box-sizing: border-box;
+  max-height: calc(100vh - 16px);
+  max-width: min(480px, calc(100vw - 16px));
+  min-height: 250px;
+  overflow: auto;
+  padding: 8px;
+  position: fixed;
+  width: min(480px, calc(100vw - 16px));
+}
+
+.person-info-window__header {
+  align-items: baseline;
+  cursor: move;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  margin: 0 0 5px;
+  border-bottom: solid 1px rgb(198, 198, 198);
+}
+
+.person-info-window__title {
+  line-height: 1em;
+  margin-right: 5px;
+  min-width: 0;
+}
+
+.person-info-window__close {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  margin: 0 0 0 auto;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.person-info-window__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(250px - 34px);
+  /* border: solid 1px rgb(231, 231, 231); */
+  background-color: rgba(255, 255, 255, 0);
+  padding: 3px;
+}
+
+.person-info-window__top {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+}
+
+.person-info-window__text {
+  min-width: 0;
+}
+
+.person-info-window__image {
+  display: block;
+  height: auto;
+  max-height: 150px;
+  max-width: min(120px, 100%);
+  object-fit: contain;
+  width: auto;
+}
+
+.person-info-window__description {
+  font-family: sans-serif;
+  margin: 0;
+  white-space: pre-line;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: rgb(0, 0, 0);
+}
+
+.person-info-window__links {
+  font-family: sans-serif;
+  list-style: none;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  margin: 1px 0 0;
+  padding: 0;
+}
+
+.person-info-window__links-item+.person-info-window__links-item {
+  margin-top: 2px;
+}
+
+.person-info-window__link {
+  color: blue;
+  text-decoration: underline;
+}
+
+.person-info-window__email {
+  font-family: sans-serif;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 2rem;
+  line-height: 1.1;
+  padding: 0;
+  text-align: right;
+  width: 100%;
+}
+
+.person-info-window__email-row {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.person-info-window__copied {
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 640px) {
+  .person-info-window {
+    width: calc(100vw - 16px);
+  }
+
+  .person-info-window__top {
+    flex-direction: column;
+  }
+}
