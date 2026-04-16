@@ -128,5 +128,17 @@
     width: calc(100vw - 16px);
   }
 
+  
+  .person-info-window__email {
+  font-size: 6vw;
+}
+
+.person-info-window {
+  min-height: 230px;
+}
+
+.person-info-window__body {
+  min-height: calc(230px - 34px);
+}
 
 }
