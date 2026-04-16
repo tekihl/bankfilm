@@ -90,25 +90,29 @@ export function FilmsList({ films }: FilmsListProps) {
     <>
       <h2 className="films-title"> Filmer </h2>
       <ul className="films-list">
-        {visibleFilms.map((film) => (
-          <li key={film._id} className="films-list__item">
-            <span className="films-list__title">{film.title}</span>
-            {film.filmType ? <span className="films-list__type"> {film.filmType}</span> : null}
-            {film.team && film.team.length > 0 ? (
-              <span className="films-list__team"> {film.team.join(" / ")}</span>
-            ) : null}
-            {film.imageUrl ? (
-              <button
-                type="button"
-                className="films-list__image-link"
-                onClick={() => openFilmWindow({ imageUrl: film.imageUrl, title: film.title })}
-              >
-                {" "}
-                [se bild]
-              </button>
-            ) : null}
-          </li>
-        ))}
+        {visibleFilms.map((film) => {
+          const imageUrl = film.imageUrl;
+
+          return (
+            <li key={film._id} className="films-list__item">
+              <span className="films-list__title">{film.title}</span>
+              {film.filmType ? <span className="films-list__type"> {film.filmType}</span> : null}
+              {film.team && film.team.length > 0 ? (
+                <span className="films-list__team"> {film.team.join(" / ")}</span>
+              ) : null}
+              {imageUrl ? (
+                <button
+                  type="button"
+                  className="films-list__image-link"
+                  onClick={() => openFilmWindow({ imageUrl, title: film.title })}
+                >
+                  {" "}
+                  [se bild]
+                </button>
+              ) : null}
+            </li>
+          );
+        })}
       </ul>
       {openWindows.map((openWindow) => (
         <FilmImageWindow
