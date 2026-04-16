@@ -6,6 +6,8 @@ import { TextSizeControls } from "./components/TextSizeControls";
 import { client } from "../sanity/lib/client";
 import { ABOUT_QUERY, FILMS_QUERY, PEOPLE_QUERY } from "../sanity/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 async function getLogoFrames() {
   const framesDirectory = path.join(process.cwd(), "public", "megaoptimised");
   const entries = await readdir(framesDirectory, { withFileTypes: true });
