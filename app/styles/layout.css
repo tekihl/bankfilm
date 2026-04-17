@@ -5,98 +5,100 @@
 }
 
 .home__meta {
-  left: 24px;
+  left: 0;
+  max-width: min(560px, 100%);
   position: absolute;
-  top: 24px;
+  top: 0;
   z-index: 1;
 }
 
-.text-wrapper {
-  max-width: calc(100vw - 48px);
-  overflow-wrap: break-word;
-}
-
-.text-size-controls {
-  align-items: flex-start;
+.home__logo-stack {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 0;
-}
-
-.text-size-controls__content {
-  align-items: flex-start;
-  display: flex;
-  justify-content: space-between;
-  width: calc(100vw - 48px);
-}
-
-.text-size-controls__content--wrapped {
-  display: block;
-}
-
-.text-size-controls__logo {
-  flex: 0 0 auto;
-  margin-left: 24px;
-  width: 150px;
-}
-
-.text-wrapper--wrapped::after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.text-wrapper__logo--wrapped {
-  float: right;
-  margin: 0 0 16px 16px;
-  width: 150px;
-}
-
-.text-size-controls__slider {
-  bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  position: fixed;
-  right: 24px;
-}
-
-.text-size-controls__label {
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.2;
-}
-
-.text-size-controls__range {
-  cursor: pointer;
-  width: min(240px, calc(100vw - 48px));
-}
-
-.home__center {
+  gap: 16px;
   left: 50%;
-  position: absolute;
+  max-width: 150px;
+  position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: min(150px, 100%);
 }
 
-.title {
-  font-size: 1.7rem;
+.header {
+  overflow-wrap: break-word;
+  padding-top: 3vw;
+}
+
+.header__title {
+  font-size: 4.6rem;
   font-weight: 400;
   line-height: 1.1;
-  margin: 0 0 0.5em;
+  margin: 0 0 0.2rem;
 }
 
-.people-inline__link {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  color: blue;
+.header__title-link {
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
-  display: inline;
-  font: inherit;
-  line-height: inherit;
+}
+
+.header__address {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  white-space: pre-line;
+}
+
+.page-shell {
+  min-height: 100vh;
+  position: relative;
+}
+
+.page-shell--meta {
   padding: 0;
-  text-align: left;
-  text-decoration: underline;
-  vertical-align: baseline;
+}
+
+.page-intro {
+  margin: 0 0 32px;
+  max-width: min(560px, 100%);
+}
+
+.about-page__content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.about-page__textbox {
+  max-width: 700px;
+  width: 100%;
+}
+
+.about-page__paragraph {
+  margin: 0;
+  white-space: pre-line;
+  line-height: 1.2rem;
+}
+
+.about-page__paragraph+.about-page__paragraph {
+  margin-top: 1rem;
+}
+
+.site-nav {
+  list-style: none;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: -20px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .home__meta {
+    max-width: 100%;
+  }
 }

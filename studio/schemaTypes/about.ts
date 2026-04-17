@@ -18,5 +18,17 @@ export const aboutType = defineType({
       rows: 6,
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'address',
+      title: 'Address',
+      type: 'text',
+      rows: 6,
+    }),
+    defineField({
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+      validation: (rule) => rule.email(),
+    }),
   ],
 })
