@@ -9,8 +9,17 @@ import { ABOUT_QUERY } from "../sanity/lib/queries";
 export const dynamic = "force-dynamic";
 
 async function getLogoFrames() {
-  const framesFolder = "Sköldar";
-  const framesDirectory = path.join(process.cwd(), "public", framesFolder);
+  const publicDirectory = path.join(process.cwd(), "public");
+  const publicEntries = await readdir(publicDirectory, { withFileTypes: true });
+  const framesFolder = publicEntries.find(
+    (entry) => entry.isDirectory() && entry.name.normalize("NFC").toLowerCase() === "sköldar",
+  )?.name;
+
+  if (!framesFolder) {
+    return [];
+  }
+
+  const framesDirectory = path.join(publicDirectory, framesFolder);
   const entries = await readdir(framesDirectory, { withFileTypes: true });
 
   return entries
