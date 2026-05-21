@@ -12,11 +12,6 @@ export const filmType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'filmType',
-      title: 'Type',
-      type: 'string',
-    }),
-    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -25,10 +20,9 @@ export const filmType = defineType({
       },
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-      rows: 6,
+      name: 'filmType',
+      title: 'Type',
+      type: 'string',
     }),
     defineField({
       name: 'status',
@@ -41,11 +35,66 @@ export const filmType = defineType({
       type: 'array',
       of: [
         defineField({
-          name: 'member',
+          name: 'teamMember',
           title: 'Member',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Name',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'role',
+              title: 'Role',
+              type: 'string',
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              subtitle: 'role',
+            },
+          },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'productionText',
+      title: 'Production text',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'block',
+          title: 'Block',
+          type: 'block',
+          styles: [{title: 'Normal', value: 'normal'}],
+          lists: [],
+          marks: {
+            decorators: [{title: 'Bold', value: 'strong'}],
+            annotations: [],
+          },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'honorsOther',
+      title: 'Honors & other',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'honor',
+          title: 'Text',
           type: 'string',
         }),
       ],
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 6,
     }),
     defineField({
       name: 'linkTitle',

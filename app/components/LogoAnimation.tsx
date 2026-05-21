@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const TOTAL_DURATION_MS = 100_000;
+const TOTAL_DURATION_MS = 15000;
 
 type LogoAnimationProps = {
     frames: string[];

@@ -1,3 +1,4 @@
+import { CopyEmail } from "../components/CopyEmail";
 import { Header } from "../components/Header";
 import { client } from "../../sanity/lib/client";
 import { ABOUT_QUERY, PEOPLE_QUERY } from "../../sanity/lib/queries";
@@ -25,11 +26,14 @@ export default async function AboutPage() {
           <div className="about-page__textbox">
             <p className="about-page__paragraph">
               {descriptionText}
-              {peopleNames ? ` ${peopleNames}` : ""}
+              {peopleNames ? ` ${peopleNames}.` : ""}
+              {about?.email ? (
+                <>
+                  {" "}
+                  <CopyEmail email={about.email} />
+                </>
+              ) : null}
             </p>
-            {about?.email ? (
-              <p className="about-page__paragraph">inquiries: {about.email}</p>
-            ) : null}
           </div>
         </div>
       ) : null}

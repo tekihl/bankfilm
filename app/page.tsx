@@ -9,14 +9,15 @@ import { ABOUT_QUERY } from "../sanity/lib/queries";
 export const dynamic = "force-dynamic";
 
 async function getLogoFrames() {
-  const framesDirectory = path.join(process.cwd(), "public", "megaoptimised");
+  const framesFolder = "Sköldar";
+  const framesDirectory = path.join(process.cwd(), "public", framesFolder);
   const entries = await readdir(framesDirectory, { withFileTypes: true });
 
   return entries
-    .filter((entry) => entry.isFile() && /^BANK\d{3}-2x\.jpg$/i.test(entry.name))
+    .filter((entry) => entry.isFile() && /\.(avif|gif|jpe?g|png|webp)$/i.test(entry.name))
     .map((entry) => entry.name)
     .sort((first, second) => first.localeCompare(second, undefined, { numeric: true }))
-    .map((fileName) => `/megaoptimised/${fileName}`);
+    .map((fileName) => `/${encodeURIComponent(framesFolder)}/${encodeURIComponent(fileName)}`);
 }
 
 export default async function Home() {

@@ -10,9 +10,10 @@ export const ABOUT_QUERY = defineQuery(`
 `)
 
 export const PEOPLE_QUERY = defineQuery(`
-  *[_type == "person"] | order(name asc){
+  *[_type == "person"] | order(coalesce(sortOrder, 9999) asc, name asc){
     _id,
-    name
+    name,
+    sortOrder
   }
 `)
 
@@ -21,9 +22,27 @@ export const FILMS_QUERY = defineQuery(`
     _id,
     title,
     filmType,
-    description,
     status,
+    description,
+    productionText,
+    honorsOther,
     team,
+    "imageUrl": image.asset->url
+  }
+`)
+
+export const FILM_QUERY = defineQuery(`
+  *[_type == "film" && _id == $id][0]{
+    _id,
+    title,
+    filmType,
+    status,
+    description,
+    productionText,
+    honorsOther,
+    team,
+    linkTitle,
+    linkUrl,
     "imageUrl": image.asset->url
   }
 `)

@@ -5,10 +5,10 @@ export function NavLinks() {
     <nav aria-label="Primary">
       <ul className="site-nav">
         <li>
-          <Link href="/about">About</Link>
+          <Link href="/films">Films</Link>
         </li>
         <li>
-          <Link href="/films">Films</Link>
+          <Link href="/about">About</Link>
         </li>
       </ul>
     </nav>

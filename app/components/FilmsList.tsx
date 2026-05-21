@@ -1,10 +1,13 @@
+import Link from "next/link";
+
 type Film = {
   description?: string;
   _id: string;
   filmType?: string;
+  honorsOther?: string[];
   imageUrl?: string;
   status?: string;
-  team?: string[];
+  team?: Array<string | { name?: string; role?: string }>;
   title?: string;
 };
 
@@ -20,9 +23,10 @@ export function FilmsList({ films }: FilmsListProps) {
       _id: string;
       description?: string;
       filmType?: string;
+      honorsOther?: string[];
       imageUrl?: string;
       status?: string;
-      team?: string[];
+      team?: Array<string | { name?: string; role?: string }>;
       title: string;
     } =>
       Boolean(film.title),
@@ -33,33 +37,27 @@ export function FilmsList({ films }: FilmsListProps) {
   }
 
   return (
-    <>
+    <div className="film-list-wrapper">
       <h2 className="films-title"> Filmer </h2>
       <ul className="films-list">
         {visibleFilms.map((film) => {
           const imageUrl = film.imageUrl;
-          const infoParts = [film.description, film.team?.join(" / ")].filter(Boolean);
+          const href = `/films/${encodeURIComponent(film._id)}`;
 
           return (
             <li key={film._id} className="films-list__item">
-              {imageUrl ? (
-                <div className="films-list__image-frame">
-                  <img className="films-list__image" src={imageUrl} alt={film.title} />
-                </div>
-              ) : null}
-              <div className="films-list__text">
-                <div className="films-list__headline">
-                  <span className="films-list__title">{film.title}</span>
-                  {film.filmType ? <span className="films-list__type">{film.filmType}</span> : null}
-                </div>
-                {film.status ? <div className="films-list__status-badge">{film.status}</div> : null}
-                {infoParts.length > 0 ? <p className="films-list__meta">{infoParts.join(" / ")}</p> : null}
-                
-              </div>
+              <Link className="films-list__link" href={href}>
+                {imageUrl ? (
+                  <div className="films-list__image-frame">
+                    <img className="films-list__image" src={imageUrl} alt={film.title} />
+                  </div>
+                ) : null}
+                <span className="films-list__title">{film.title}</span>
+              </Link>
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
