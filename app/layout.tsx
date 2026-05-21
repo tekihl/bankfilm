@@ -1,7 +1,26 @@
+import type { Metadata } from "next";
+
 import "./globals.css";
 import "./styles/films.css";
 import "./styles/layout.css";
 import "./styles/logo-animation.css";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [
+      {
+        url: "/bankfilm-asterix.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: [
+      {
+        url: "/bankfilm-asterix.svg",
+        type: "image/svg+xml",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
