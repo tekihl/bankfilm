@@ -129,8 +129,23 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .home__meta {
     max-width: 100%;
+    position: relative;
+  }
+
+  .home__logo-stack {
+    left: auto;
+    margin: clamp(48px, 14vh, 140px) auto 80px;
+    position: relative;
+    top: auto;
+    transform: none;
+  }
+
+  .about-page__content {
+    align-items: flex-start;
+    min-height: auto;
+    padding: clamp(48px, 10vh, 96px) 0 100px;
   }
 }
